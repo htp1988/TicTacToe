@@ -1,70 +1,73 @@
 <html lang="en">
-  <head>
+<head>
+    <!-- Setting character set and responsive design -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the web page -->
     <title>Tic-tac-toe</title>
+    <!-- Link to external CSS for styling -->
     <link rel="stylesheet" href="static/styles.css">
+    <!-- Link to Google font -->
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-  </head>
-  <body onload="initialize()">
+</head>
+<body onload="initialize()">
+    <!-- Heading of the page -->
     <h1>Tic-Tac-Toe</h1>
+
+    <!-- Game board with cells that respond to clicks -->
     <table id="table_game">
-      <tr>
-        <td class="td_game"><div id="cell0" onclick="cellClicked(this.id)" class="fixed"></div></td>
-        <td class="td_game"><div id="cell1" onclick="cellClicked(this.id)" class="fixed"></div></td>
-        <td class="td_game"><div id="cell2" onclick="cellClicked(this.id)" class="fixed"></div></td>
-      </tr>
-      <tr>
-        <td class="td_game"><div id="cell3" onclick="cellClicked(this.id)" class="fixed"></div></td>
-        <td class="td_game"><div id="cell4" onclick="cellClicked(this.id)" class="fixed"></div></td>
-        <td class="td_game"><div id="cell5" onclick="cellClicked(this.id)" class="fixed"></div></td>
-      </tr>
-      <tr>
-        <td class="td_game"><div id="cell6" onclick="cellClicked(this.id)" class="fixed"></div></td>
-        <td class="td_game"><div id="cell7" onclick="cellClicked(this.id)" class="fixed"></div></td>
-        <td class="td_game"><div id="cell8" onclick="cellClicked(this.id)" class="fixed"></div></td>
-      </tr>
+        <tr>
+            <td class="td_game"><div id="cell0" onclick="cellClicked(this.id)" class="fixed"></div></td>
+            <td class="td_game"><div id="cell1" onclick="cellClicked(this.id)" class="fixed"></div></td>
+            <td class="td_game"><div id="cell2" onclick="cellClicked(this.id)" class="fixed"></div></td>
+        </tr>
+        <tr>
+            <td class="td_game"><div id="cell3" onclick="cellClicked(this.id)" class="fixed"></div></td>
+            <td class="td_game"><div id="cell4" onclick="cellClicked(this.id)" class="fixed"></div></td>
+            <td class="td_game"><div id="cell5" onclick="cellClicked(this.id)" class="fixed"></div></td>
+        </tr>
+        <tr>
+            <td class="td_game"><div id="cell6" onclick="cellClicked(this.id)" class="fixed"></div></td>
+            <td class="td_game"><div id="cell7" onclick="cellClicked(this.id)" class="fixed"></div></td>
+            <td class="td_game"><div id="cell8" onclick="cellClicked(this.id)" class="fixed"></div></td>
+        </tr>
     </table>
-    <div id="restart" title="Start new game" onclick="restartGame(true)"><span style="vertical-align:top;position:relative;top:-10px">#</span></div>
+
+    <!-- Scoreboard -->
     <table>
-      <tr>
-        <th class="th_list" id="score_player1_label">Player</th>
-        <th class="th_list" style="padding-right:10px;padding-left:10px" id="score_draws_label">Draws</th>
-        <th class="th_list" id="score_player2_label">Computer</th>
-      </tr>
-      <tr>
-        <td class="td_list" id="player1_score">0</td>
-        <td class="td_list" style="padding-right:10px;padding-left:10px" id="tie_score">0</td>
-        <td class="td_list" id="player2_score">0</td>
-      </tr>
+        <tr>
+            <th class="th_list" id="score_player1_label">Player</th>
+            <th class="th_list" style="padding-right:10px;padding-left:10px" id="score_draws_label">Draws</th>
+            <th class="th_list" id="score_player2_label">Computer</th>
+        </tr>
+        <tr>
+            <td class="td_list" id="player1_score">0</td>
+            <td class="td_list" style="padding-right:10px;padding-left:10px" id="tie_score">0</td>
+            <td class="td_list" id="player2_score">0</td>
+        </tr>
     </table>
-    <!-- The modal dialog for announcing the winner -->
+
+    <!-- Announcing the winner -->
     <div id="winAnnounce" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close" onclick="closeModal('winAnnounce')">×</span>
-        <p id="winText"></p>
-      </div>
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('winAnnounce')">×</span>
+            <p id="winText"></p>
+        </div>
     </div>
-    <!-- The dialog for getting feedback from the user -->
-    <div id="userFeedback" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <p id="questionText"></p>
-        <p><button id="yesBtn">Yes</button> <button id="noBtn">No</button></p>
-      </div>
-    </div>
-    <!-- The options dialog -->
+
+    <!-- The options dialog for game mode settings -->
     <div id="optionsDlg" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <h2>How would you like to play?</h2>
-          <h3>Player:</h3>
-          <label><input type="radio" name="player" id="r0" value="0">1 Player </label>
-          <label><input type="radio" name="player" id="r1" value="1" checked>2 Player</label><br>
-          <p><button id="okBtn" onclick="getOptions()">Play</button></p>
-      </div>
+        <div class="modal-content">
+            <h2>How would you like to play?</h2>
+            <h3>Player:</h3>
+            <label><input type="radio" name="player" id="r0" value="0">1 Player </label>
+            <label><input type="radio" name="player" id="r1" value="1" checked>2 Player</label><br>
+            <p><button id="okBtn" onclick="getOptions()">Play</button></p>
+        </div>
     </div>
+
+    <!-- Link to external JavaScript for game logic -->
     <script src="static/script.js"></script>
-  </body>
+</body>
 </html>
