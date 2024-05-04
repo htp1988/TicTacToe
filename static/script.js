@@ -239,6 +239,10 @@ function initialize() {
     setTimeout(showOptions, 500);
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    initialize();
+});
+
 // Toggle between player X and O
 function switchPlayer() {
     if (player === x) {
@@ -254,6 +258,8 @@ function switchPlayer() {
 
 // Handle cell click during gameplay
 function cellClicked(id) {
+    console.log("cell clicked", id)
+
     // Extract cell index
     var idName = id.toString();
     var cell = parseInt(idName[idName.length - 1]);

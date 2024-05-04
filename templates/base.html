@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Setting the page title dynamically -->
+    <title>{% block title %}My App{% endblock %}</title>
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Link to JavaScript file -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <header>
+        <h1>Tic-Tac-Toe</h1>
+    </header>
+
+    <!-- Displaying flash messages -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="form-error">
+                {% for message in messages %}
+                    <div class="form-error">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Where page-specific content will be injected -->
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        <p>© 2024 Team Red</p>
+    </footer>
+
+    <!-- Scripts block for injecting page-specific JavaScript -->
+    {% block scripts %}
+    {% endblock %}
+</body>
+</html>

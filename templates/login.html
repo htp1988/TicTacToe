@@ -1,0 +1,40 @@
+<!-- Extends the base layout -->
+{% extends 'base.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+<div class="modal-content" style="margin-top: 10%; padding: 20px;">
+    <!-- Header for the login form -->
+    <h2 style="color: #202020;">Login</h2>
+    <form action="{{ url_for('login') }}" method="post">
+        {{ form.hidden_tag() }} <!-- CSRF token hidden field for security -->
+        <!-- Input fields and check errors -->
+        <div>
+            {{ form.username.label }} {{ form.username() }}
+            {% if form.username.errors %}
+                {% for error in form.username.errors %}
+                    <div class="form-error">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div>
+            {{ form.password.label }} {{ form.password() }}
+            {% if form.password.errors %}
+                {% for error in form.password.errors %}
+                    <div class="form-error">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div>
+            {{ form.submit() }} <!-- Submit button for the form -->
+        </div>
+    </form>
+    <div class="small-text">
+        <!-- Link to switch to the register page -->
+        <a href="{{ url_for('register') }}" style="color: #202020;">Don't have an account? Register here</a>
+    </div>
+</div>
+{% endblock %}
