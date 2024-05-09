@@ -18,7 +18,7 @@ flask run
 
 Navigate to http://127.0.0.1:5000/ in the web browser.
 Create an account or use the test account: 
-    username:testuser
-    password: testpassword
+        username:testuser
+        password: testpassword
 
 *** Press Ctrl + C in the terminal to stop the Flask server and type deactivate in the terminal to deactivate the virtual environment.
