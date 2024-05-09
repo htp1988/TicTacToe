@@ -1,5 +1,5 @@
 Running the following command to clone the repository:    
-git clone https://github.com/htp1988/TicTacToe.git
+'git clone https://github.com/htp1988/TicTacToe.git'
 
 Navigate to the directory where you cloned the repository:    
 cd .\TicTacToe
